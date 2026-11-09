@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>宴｜3Dイメージ — ensai</title>
+<link rel="stylesheet" href="viewer/viewer.css"><link rel="stylesheet" href="viewer/mobile.css">
+</head>
+<body>
+<header><img src="assets/viewer/ensai-logo.png" alt="ensai"><div class="ttl"><span class="nm">宴</span><span class="sep" aria-hidden="true"></span><span class="sub">3Dイメージ</span></div></header>
+<div class="rule"></div>
+<main>
+  <div class="stage" id="stage">
+    <canvas id="c3d" tabindex="0" aria-label="3D 純チタンタンブラー「宴」。ドラッグまたは矢印キーで回転、タップで中身を切替。"></canvas>
+    <p class="fail" id="fail">3D表示を読み込めませんでした。WebGL対応のブラウザで再読み込みしてください。</p>
+  </div>
+  <p class="hint"><span class="pc">ドラッグで回転 ・ タップで空・水・水と氷を切替</span><span class="sp">スワイプで回転 ・ タップで空・水・水と氷を切替</span></p>
+  <div class="ctrl">
+    <div class="grp"><p class="lbl">絵柄</p><div class="seg" data-k="pat" role="group" aria-label="絵柄">
+      <button type="button" data-v="koi" aria-pressed="false">落葉と錦鯉</button>
+      <button type="button" data-v="seiza" aria-pressed="false">冬の星座</button>
+      <button type="button" data-v="tetsudo" aria-pressed="true">銀河鉄道</button>
+      <button type="button" data-v="taiyo" aria-pressed="false">日本海大漁</button></div></div>
+    <div class="grp"><p class="lbl">中身</p><div class="seg" data-k="drink" role="group" aria-label="中身">
+      <button type="button" data-v="empty" aria-pressed="true">空</button>
+      <button type="button" data-v="water" aria-pressed="false">水</button>
+      <button type="button" data-v="waterice" aria-pressed="false">水と氷</button></div></div>
+  </div>
+  <div class="rotation-controls"><button type="button" id="toggle-rotation" aria-pressed="true">自動回転を止める</button></div>
+  <p class="note">形状・発色はイメージです</p>
+</main>
+<script src="viewer/viewer-loader.js"></script>
+<script type="module" src="viewer/viewer.bundle.js"></script>
+<script src="viewer/viewer-resize.js"></script></body></html>

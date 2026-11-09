@@ -1,0 +1,164 @@
+/* 燕彩 FV 2026-11: 「注ぐたび、景色が生まれる。」を主役にした版。
+   他のセクションの既存デザイン、CTAの動作は変更しない。 */
+.hero {
+  position: relative;
+  display: block;
+  aspect-ratio: 720 / 1280;
+  min-height: 0;
+  padding: 0;
+  isolation: isolate;
+  overflow: hidden;
+  background: #4b291c;
+  color: #fff;
+}
+.hero > .hero-photo {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center center;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(15,9,6,.26) 0%, transparent 28%, transparent 51%, rgba(20,9,5,.13) 66%, rgba(12,6,2,.55) 100%);
+}
+.hero-catch {
+  position: absolute;
+  top: 9%;
+  left: 6.2%;
+  right: auto;
+  margin: 0;
+  font-size: clamp(22px, 5.2cqw, 39px);
+  line-height: 1.38;
+  letter-spacing: .07em;
+  font-weight: 800;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  white-space: nowrap;
+  text-shadow: 0 2px 5px rgba(20,11,7,.82), 0 0 10px rgba(20,11,7,.45);
+}
+.hero-badge {
+  position: absolute;
+  top: 4%;
+  right: 4.8%;
+  left: auto;
+  width: 31%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 4px rgba(0,0,0,.8);
+}
+.hero-badge > img {
+  display: block;
+  width: 66%;
+  height: auto;
+  margin: 0;
+  filter: brightness(0) invert(1);
+  mix-blend-mode: normal;
+}
+.hero-badge-label { font-size: clamp(13px, 3.4cqw, 23px); font-weight: 800; line-height: 1.2; margin-top: .1em; }
+.hero-badge-ring {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 1.2 / 1;
+  margin-top: .12em;
+  border: 2px solid rgba(255,255,255,.9);
+  border-radius: 50%;
+  background: rgba(27,13,11,.10);
+}
+.hero-weight { display: flex; align-items: baseline; justify-content: center; white-space: nowrap; line-height: 1; }
+.hero-weight small { font-size: clamp(15px, 3.5cqw, 25px); font-weight: 600; }
+.hero-weight strong { font-size: clamp(30px, 8.8cqw, 65px); letter-spacing: -.06em; font-weight: 800; }
+.hero-size { font-size: clamp(11px, 2.7cqw, 19px); line-height: 1.24; margin-top: .3em; }
+.hero-info {
+  position: absolute;
+  top: 65.7%;
+  left: 6%;
+  right: 3%;
+  margin: 0;
+  padding: 0;
+  text-shadow: 0 2px 4px rgba(22,9,5,.8);
+}
+.hero-info > .hero-logo { width: 24%; height: auto; max-height: 2.5em; object-fit: contain; object-position: left center; display: block; margin: 0 0 .25em; }
+.hero-lead { font-size: clamp(13px, 3.5cqw, 24px); line-height: 1.38; white-space: normal; margin: 0 0 .25em; font-weight: 800; }
+.hero-info .opening-place { font-size: clamp(25px, 6.1cqw, 43px); font-weight: 900; line-height: 1.1; color: #edec53; margin: .12em 0; white-space: nowrap; }
+.hero-info .opening-date { font-size: clamp(23px, 5.7cqw, 41px); font-weight: 800; line-height: 1.1; letter-spacing: .014em; margin: .12em 0; white-space: nowrap; }
+.hero-info .hero-store { font-size: clamp(12px, 3.05cqw, 22px); font-weight: 700; line-height: 1.38; white-space: normal; margin: .2em 0 0; }
+.hero-cta {
+  position: absolute;
+  top: 88%;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+}
+.hero-cta .cta.line {
+  position: relative;
+  width: 81%;
+  min-height: 0;
+  padding: .65em 4.5em .65em 1.1em;
+  display: block;
+  text-align: left;
+  border: 0;
+  border-radius: 999px;
+  box-shadow: 1px 3px 5px rgba(0,0,0,.43);
+  line-height: 1.3;
+  font-size: clamp(12px, 2.8cqw, 21px);
+}
+.hero .cta.line .line-copy { display: block; }
+.hero .cta.line strong { display: block; font-size: 1.25em; white-space: nowrap; line-height: 1.25; }
+.hero .cta.line small { display: block; font-size: .72em; line-height: 1.38; white-space: normal; }
+.hero-cta .hero-gift { position: absolute; display:block; width: 3.5em; height: 3.5em; right: 1.2em; top: 50%; transform: translateY(-50%); }
+.hero-cta .line > .arrow { display: block; position: absolute; top: 50%; right: .35em; transform: translateY(-50%); font-size: 1.3em; }
+.hero-cta > .fine { color:#fff; font-size: clamp(11px, 2cqw, 14px); line-height:1.4; margin: .4em auto 0; text-align: center; text-shadow: 0 2px 2px #27150a; }
+@media (max-width: 600px) {
+  .hero { min-height: max(690px, 178vw); aspect-ratio: auto; }
+  .hero-catch { top: 11%; left: 5.3%; font-size: clamp(22px, 5.7vw, 28px); }
+  .hero-badge { top: 5.5%; right: 5%; width: 32%; }
+  .hero-badge-label { font-size: 14px; }
+  .hero-weight small { font-size: 15px; }
+  .hero-weight strong { font-size: clamp(31px, 9vw, 39px); }
+  .hero-size { font-size: 12px; }
+  .hero-info { top: 66%; left: 6%; right: 3%; }
+  .hero-info > .hero-logo { width: 25%; }
+  .hero-lead { font-size: 13.5px; }
+  .hero-info .opening-place { font-size: clamp(24px, 6.5vw, 29px); }
+  .hero-info .opening-date { font-size: clamp(21px, 5.8vw, 27px); }
+  .hero-info .hero-store { font-size: 12px; }
+  .hero-cta { top: 86.5%; }
+  .hero-cta .cta.line {
+    display: block;
+    width: 83%;
+    min-height: 66px;
+    height: auto;
+    padding: 10px 64px 10px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+  }
+  .hero .cta.line .line-copy { display: block; }
+  .hero .cta.line strong { font-size: 15px; line-height: 1.3; }
+  .hero .cta.line small { font-size: 12px; line-height: 1.45; }
+  .hero-cta .hero-gift { width: 45px; height: 45px; right: 24px; top: 50%; transform: translateY(-50%); }
+  .hero-cta .line > .arrow { right: 8px; }
+  .hero-cta > .fine { font-size: 11px; margin: 8px 8px 0; }
+}
+@media (max-width: 360px) {
+  .hero { min-height: 708px; }
+  .hero-catch { font-size: 21px; }
+  .hero-info { top: 65%; }
+  .hero-cta { top: 87%; }
+  .hero-cta .cta.line { width: 88%; }
+}

@@ -1,0 +1,250 @@
+/* Mobile readability update, 2026-10-17.
+   Keep the original stylesheet as a reference; load this file after it.
+   Layout changes are limited to <=600px. Photos, colours and copy stay intact. */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+.page { font-size: clamp(16px, 2.78vw, 20px); }
+.fine { font-size: max(12px, .65em); }
+.hero-cta > .fine { font-size: max(12px, .6em); }
+.hero .cta.line small { font-size: max(12px, .64em); }
+.price small { font-size: max(12px, .55em); }
+.experience-images figcaption { font-size: max(12px, .65em); }
+
+/* The original LINE artwork remains the desktop version. Its mobile version
+   uses the same words and existing charm PNG, so text can wrap independently. */
+.line-art > .line-copy,
+.line-art > .hero-gift,
+.line-art > .arrow { display: none; }
+
+dialog {
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+}
+dialog p { font-size: 16px; overflow-wrap: anywhere; }
+dialog button { min-height: 44px; font-size: 16px; }
+
+@media (max-width: 600px) {
+  .page { font-size: 16px; }
+  h2 { font-size: 24px; }
+  h3 { font-size: 20px; }
+  .pad { padding-left: 20px; padding-right: 20px; }
+  .section-title { padding: 44px 0 24px; }
+  .eyebrow { font-size: 12px; line-height: 1.6; }
+  .copy,
+  .copy.compact,
+  .experience .copy { font-size: 16px; line-height: 1.85; }
+  /* Desktop line breaks no longer create very short lines on small screens. */
+  .copy br,
+  .feature p br,
+  .store-intro p br { display: none; }
+  .copy { padding: 24px 0 32px; }
+  .copy.compact { padding: 4px 0 28px; }
+  .fine { font-size: 12px; line-height: 1.7; }
+  .spec { font-size: 12px; line-height: 1.7; }
+
+  /* The photo and top catch retain their order. Information and CTA now grow
+     in normal flow instead of sharing a fixed aspect-ratio box. */
+  .hero {
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    padding-top: 118.2222vw; /* former 66.5% of a 720:1280 hero */
+    padding-bottom: 20px;
+  }
+  .hero > .hero-photo {
+    top: -22.9333vw; /* preserve the width-based upper crop */
+    height: calc(100% + 22.9333vw);
+    object-fit: cover;
+    object-position: center top;
+  }
+  .hero-catch {
+    top: 7.1111vw;
+    font-size: clamp(22px, 6vw, 32px);
+    line-height: 1.45;
+  }
+  .hero-info {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    margin: 0 5.5%;
+  }
+  .hero-info > img { margin-bottom: 8px; }
+  .hero-lead,
+  .hero-store {
+    font-size: 16px;
+    white-space: normal;
+    line-height: 1.65;
+  }
+  .opening { padding: 10px 0 6px; }
+  .opening-date { font-size: 18px; line-height: 1.4; }
+  .opening-place { font-size: 20px; line-height: 1.4; }
+  .hero-cta {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    margin-top: 16px;
+  }
+  .hero-cta > .fine {
+    margin: 10px 20px 0;
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  /* Both LINE buttons: title + charm on the first row, full-width conditions
+     below. The arrow has its own column; the button has no fixed height. */
+  .hero-cta .cta.line,
+  .gacha .line-art {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 48px 20px;
+    gap: 6px 10px;
+    width: calc(100% - 40px);
+    min-height: 104px;
+    height: auto;
+    padding: 14px 20px;
+    border: 0;
+    border-radius: 32px;
+    color: #fff;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.5;
+    box-shadow: 2px 3px 5px #0007;
+  }
+  .gacha .line-art {
+    width: 100%;
+    margin-top: 24px;
+    background: #05c756; /* dominant green sampled from the supplied banner */
+  }
+  .line-art > .line-banner { display: none; }
+  .hero-cta .line-copy,
+  .line-art > .line-copy { display: contents; }
+  .hero .cta.line strong,
+  .line-art .line-copy strong {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+    font-size: 18px;
+    line-height: 1.5;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  .hero .cta.line small,
+  .line-art .line-copy small {
+    display: block;
+    grid-column: 1 / 3;
+    grid-row: 2;
+    font-size: 12.5px;
+    line-height: 1.65;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  .hero-cta .hero-gift,
+  .line-art > .hero-gift {
+    display: block;
+    position: static;
+    grid-column: 2;
+    grid-row: 1;
+    transform: none;
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+  }
+  .hero-cta .line > .arrow,
+  .line-art > .arrow {
+    display: block;
+    position: static;
+    grid-column: 3;
+    grid-row: 1 / 3;
+    align-self: center;
+    font-size: 24px;
+  }
+  .gacha > .fine { margin-top: 12px; }
+
+  .craft > .copy { padding: 24px 20px 36px; }
+  .lineup .section-title { padding-top: 44px; }
+  .lineup h2 { font-size: 22px; }
+  .product-grid { gap: 28px 16px; padding-bottom: 32px; }
+  .product .tag { font-size: 12px; line-height: 1.65; }
+  .product h3 { font-size: 18px; margin: 4px 0; }
+  .price { font-size: 20px; line-height: 1.5; }
+  .price small { font-size: 12px; display: inline-block; }
+
+  .viewer-section { padding-top: 32px; }
+  .viewer-section h2 { padding: 0 20px; font-size: 22px; }
+  .viewer-help { padding: 12px 20px 20px; font-size: 12px; line-height: 1.7; }
+  .purchase { padding: 32px 0; }
+  .purchase h2 { padding: 0 20px; font-size: 24px; }
+  .cta.shop {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 24px;
+    gap: 12px;
+    width: calc(100% - 40px);
+    min-height: 64px;
+    padding: 16px 20px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .cta.shop > .arrow { font-size: 24px; }
+
+  .features { padding: 0 20px 28px; }
+  .features .section-title { padding: 40px 0 28px; }
+  .feature {
+    grid-template-columns: minmax(0, 30%) minmax(0, 1fr);
+    gap: 14px;
+    padding-left: 0;
+    margin-bottom: 28px;
+    align-items: start;
+  }
+  .feature > img { width: 100%; }
+  .feature > div { min-width: 0; padding-left: 0; }
+  .number { font-size: 20px; margin-bottom: 8px; }
+  .feature h3 { font-size: 18px; white-space: normal; margin-bottom: 8px; }
+  .feature p { font-size: 16px; line-height: 1.75; }
+  .feature-note { font-size: 12px; line-height: 1.7; }
+
+  .mountain { padding-top: 28px; padding-bottom: 36px; }
+  .mountain > h2 { font-size: clamp(24px, 6.4vw, 30px); line-height: 1.3; }
+  .subtitle { font-size: 16px; line-height: 1.7; margin-bottom: 24px; }
+  .mountain-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 16px; }
+  .mountain-grid img { height: clamp(140px, 38vw, 224px); }
+  .mountain-grid h3 { font-size: 16px; line-height: 1.5; margin: 8px 0 4px; }
+  .mountain-grid p { font-size: 16px; line-height: 1.6; }
+  .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 16px; }
+  .category-grid figcaption { font-size: 16px; line-height: 1.6; white-space: normal; margin-top: 8px; }
+
+  .weight span { font-size: 12px; }
+  .gacha-heading { font-size: 22px; line-height: 1.6; white-space: normal; margin-bottom: 12px; }
+  .gacha-heading span { margin-bottom: 4px; }
+  .store-intro {
+    margin: 24px 0 0;
+    min-height: 0;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .store-intro > div { width: 100%; }
+  .store-intro h3 { font-size: 22px; line-height: 1.5; }
+  .store-intro p { font-size: 16px; line-height: 1.85; margin: 8px 0 16px; }
+  .store-intro > img { position: static; width: min(70%, 260px); height: auto; }
+  .experience h2 { font-size: 22px; white-space: normal; }
+  .experience-images { margin: 24px 0 28px; }
+  .experience-images figcaption { font-size: 12px; line-height: 1.7; }
+
+  footer { padding: 28px 20px 24px; }
+  footer h2 { font-size: 22px; }
+  footer > p { font-size: 16px; line-height: 1.7; overflow-wrap: anywhere; }
+  footer .fine,
+  footer .copyright { font-size: 12px; }
+  .bottom-shop {
+    gap: 16px;
+    min-height: 64px;
+    padding: 16px 20px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .bottom-shop span { flex-shrink: 0; }
+}

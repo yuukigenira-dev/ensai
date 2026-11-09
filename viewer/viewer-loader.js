@@ -1,0 +1,2 @@
+setTimeout(()=>{if(!(window.__ensai&&window.__ensai.ready))document.getElementById('fail').style.display='flex';},12000);
+window.addEventListener('error',e=>{if(e.target&&e.target.tagName==='SCRIPT')document.getElementById('fail').style.display='flex';},true);

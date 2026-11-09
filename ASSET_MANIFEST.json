@@ -1,0 +1,41 @@
+{
+  "extracted_embedded_assets": [
+    {
+      "file": "assets/viewer/ensai-logo.png",
+      "bytes": 24875,
+      "sha256": "8a2f5ee0f2b2fa9f394924ccb5080020ce4f6ef754bfabca38109c4055dbc494",
+      "source_type": "image/png;base64"
+    },
+    {
+      "file": "assets/viewer/pattern-koi.webp",
+      "bytes": 55188,
+      "sha256": "084d66b088c69b61c04945f48943f995e90ab95a695d680a6b50ee85ffc62aa0",
+      "source_type": "image/webp;base64"
+    },
+    {
+      "file": "assets/viewer/pattern-seiza.webp",
+      "bytes": 34540,
+      "sha256": "01cd86c93abfe45bac04f5534d13df842ea84a627e97f3c82299469aaa563390",
+      "source_type": "image/webp;base64"
+    },
+    {
+      "file": "assets/viewer/pattern-tetsudo.webp",
+      "bytes": 41968,
+      "sha256": "f500b295361a1456323cb9e01d871f1d20e81d2a1edfb1530c789fd169227e44",
+      "source_type": "image/webp;base64"
+    },
+    {
+      "file": "assets/viewer/pattern-taiyo.webp",
+      "bytes": 30874,
+      "sha256": "1c89fed999f5914ab819904010ee30ebd294881e1458511ca643da7a0fdd2487",
+      "source_type": "image/webp;base64"
+    },
+    {
+      "file": "assets/charm-source.png",
+      "bytes": 64954,
+      "sha256": "18691d03559841449274b669d506a534b76f31cca1681f21778a6c0a50a4cb07",
+      "source_type": "image/png;base64"
+    }
+  ],
+  "charm_display": "assets/swallow-charm.png is a transparent 4x render of the original supplied SVG; original pixels/clip paths retained in editable assets/swallow-charm.svg + assets/charm-source.png."
+}
