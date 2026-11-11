@@ -1,0 +1,46 @@
+/* =========================================================
+   motion.css — 燕彩 LP：スクロールで「ふわっと」現れる演出（モーションのみ。デザイン・配色・文言は変更なし）
+   ・調整値は :root の変数だけ（ぼかし量・上昇量・長さ・イージング）
+   ・隠すのは「<html> に .js が付いていて、動きを減らす設定ではなく、.motion-off でない」ときだけ
+     → JSなし／読み込み失敗／prefers-reduced-motion: reduce では全て表示
+   ・動かすのは opacity / filter / translate / clip-path だけ。レイアウトは動かない（CLSなし）
+     （既存の transform を持つ要素と衝突しないよう、個別プロパティ translate を使用）
+   ========================================================= */
+:root{
+  --mo-blur:6px;                              /* 表示前のぼかし量 */
+  --mo-rise:16px;                             /* 表示前の下げ幅 */
+  --mo-dur:.9s;                               /* 長さ（0.8〜1s） */
+  --mo-ease:cubic-bezier(.22,.61,.36,1);      /* ゆっくり止まるイーズ */
+  --mo-wipe-dur:1.1s;                         /* 画像ワイプの長さ */
+  --mo-fv-blur:6px;                           /* FV文字のぼかし */
+}
+
+@media (prefers-reduced-motion:no-preference){
+  /* ---------- 1. スクロール表示（motion.js が [data-reveal] を付ける） ---------- */
+  .js:not(.motion-off) [data-reveal]{
+    opacity:0;filter:blur(var(--mo-blur));translate:0 var(--mo-rise);
+    transition:opacity var(--mo-dur) var(--mo-ease),filter var(--mo-dur) var(--mo-ease),translate var(--mo-dur) var(--mo-ease)}
+  /* plain：ぼかし・移動なしで静かに（フッター・3D枠など） */
+  .js:not(.motion-off) [data-reveal="plain"]{filter:none;translate:none}
+  .js:not(.motion-off) [data-reveal].is-in{opacity:1;filter:blur(0);translate:0 0;transition-delay:var(--mo-d,0ms)}
+  .js:not(.motion-off) [data-reveal="plain"].is-in{filter:none;translate:none}
+
+  /* ---------- 2. 画像ワイプ：上から下へクリップが開きながら、ふわっと現れる（img 自身に付与） ---------- */
+  .js:not(.motion-off) [data-wipe]{
+    opacity:0;clip-path:inset(0 0 100% 0);filter:blur(4px);
+    transition:clip-path var(--mo-wipe-dur) var(--mo-ease),opacity .8s var(--mo-ease),filter var(--mo-wipe-dur) var(--mo-ease)}
+  .js:not(.motion-off) [data-wipe].is-in{opacity:1;clip-path:inset(0 0 0 0);filter:blur(0);transition-delay:var(--mo-d,0ms)}
+
+  /* ---------- 3. FVの入場（CSSのみ。約1.6秒。終了後は元の状態へ戻る＝fill は backwards のみ） ---------- */
+  .hero-photo{animation:moPhoto 1.2s var(--mo-ease) backwards}
+  .hero-catch{animation:moFvIn .9s var(--mo-ease) .15s backwards}
+  .hero-badge{animation:moFvIn .9s var(--mo-ease) .35s backwards}
+  .hero-info > :nth-child(1){animation:moFvIn .9s var(--mo-ease) .5s backwards}
+  .hero-info > :nth-child(2){animation:moFvIn .9s var(--mo-ease) .6s backwards}
+  .hero-info > :nth-child(3){animation:moFvIn .9s var(--mo-ease) .7s backwards}
+  .hero-info > :nth-child(4){animation:moFvIn .9s var(--mo-ease) .8s backwards}
+  .hero-info > :nth-child(5){animation:moFvIn .9s var(--mo-ease) .9s backwards}
+  .hero-cta{animation:moFvIn .9s var(--mo-ease) 1.05s backwards}
+}
+@keyframes moPhoto{from{opacity:.35;filter:blur(4px)}to{opacity:1;filter:blur(0)}}
+@keyframes moFvIn{from{opacity:0;filter:blur(var(--mo-fv-blur));translate:0 12px}to{opacity:1;filter:blur(0);translate:0 0}}

@@ -60,3 +60,8 @@ JavaScript 構文、相対参照、画像ファイル、埋め込みデータの
 ## 静的チェックを再実行する
 
 フォルダー内で `python3 tools/verify.py` を実行します。Node.js があれば JavaScript 構文もチェックします。リンク処理の簡易テストは `node tools/test-app.cjs` で実行できます。これらは実ブラウザー・WebGL の検証を代替しません。
+
+## スクロールで現れるモーション
+- `motion.css` / `motion.js`：スクロールで画像・見出し・商品カードなどが「ふわっと」現れる演出（IntersectionObserver のみ。ライブラリなし）。
+- 対象は `motion.js` 冒頭の `REVEAL` / `PLAIN` / `WIPE` のセレクターで管理（HTMLは変更していません）。調整値は `motion.css` の `:root`。
+- `prefers-reduced-motion: reduce`、JavaScript無効の場合は演出なしで全表示。
