@@ -50,7 +50,7 @@
   top: 4%;
   right: 4.8%;
   left: auto;
-  width: 31%;
+  width: 31.5%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,29 +60,29 @@
 }
 .hero-badge > img {
   display: block;
-  width: 66%;
+  width: 84%;
   height: auto;
-  margin: 0;
-  filter: brightness(0) invert(1);
+  margin: 0 0 .12em;
+  filter: none;
   mix-blend-mode: normal;
 }
-.hero-badge-label { font-size: clamp(13px, 3.4cqw, 23px); font-weight: 800; line-height: 1.2; margin-top: .1em; }
+.hero-badge-label { font-size: clamp(13px, 3.4cqw, 50px); font-weight: 800; line-height: 1.15; margin-top: -.05em; }
 .hero-badge-ring {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  aspect-ratio: 1.2 / 1;
-  margin-top: .12em;
+  width: 75%;
+  aspect-ratio: 1 / 1;
+  margin-top: .02em;
   border: 2px solid rgba(255,255,255,.9);
   border-radius: 50%;
-  background: rgba(27,13,11,.10);
+  background: rgba(27,13,11,.03);
 }
 .hero-weight { display: flex; align-items: baseline; justify-content: center; white-space: nowrap; line-height: 1; }
-.hero-weight small { font-size: clamp(15px, 3.5cqw, 25px); font-weight: 600; }
-.hero-weight strong { font-size: clamp(30px, 8.8cqw, 65px); letter-spacing: -.06em; font-weight: 800; }
-.hero-size { font-size: clamp(11px, 2.7cqw, 19px); line-height: 1.24; margin-top: .3em; }
+.hero-weight small { font-size: clamp(14px, 3.15cqw, 22px); font-weight: 600; }
+.hero-weight strong { font-size: clamp(30px, 8.1cqw, 58px); letter-spacing: -.06em; font-weight: 800; }
+.hero-size { font-size: clamp(11px, 2.55cqw, 18px); line-height: 1.18; margin-top: .18em; }
 .hero-info {
   position: absolute;
   top: 65.7%;
@@ -105,60 +105,123 @@
   margin: 0;
   padding: 0;
 }
-.hero-cta .cta.line {
+/* ガチャ用CTAの見た目に揃える。ヒーローだけ背景写真上で使うため、合成画像ではなく生きた文字と透明PNGを重ねる。 */
+.hero-cta .hero-campaign-btn {
   position: relative;
-  width: 81%;
-  min-height: 0;
-  padding: .65em 4.5em .65em 1.1em;
   display: block;
-  text-align: left;
+  width: 70%;
+  min-height: 0;
+  margin: 0 auto;
+  padding: .7em 24% .7em 1.1em;
   border: 0;
   border-radius: 999px;
+  background: #00c855;
+  color: #fff;
   box-shadow: 1px 3px 5px rgba(0,0,0,.43);
+  text-align: left;
   line-height: 1.3;
-  font-size: clamp(12px, 2.8cqw, 21px);
+  font-size: clamp(14px, 2.8cqw, 21px);
+  overflow: visible;
+  cursor: pointer;
 }
-.hero .cta.line .line-copy { display: block; }
-.hero .cta.line strong { display: block; font-size: 1.25em; white-space: nowrap; line-height: 1.25; }
-.hero .cta.line small { display: block; font-size: .72em; line-height: 1.38; white-space: normal; }
-.hero-cta .hero-gift { position: absolute; display:block; width: 3.5em; height: 3.5em; right: 1.2em; top: 50%; transform: translateY(-50%); }
-.hero-cta .line > .arrow { display: block; position: absolute; top: 50%; right: .35em; transform: translateY(-50%); font-size: 1.3em; }
+.hero-cta .hero-campaign-btn .line-copy { display: block; }
+.hero-cta .hero-campaign-btn .line-copy strong { display:block; font-size:1.18em; line-height:1.28; white-space:nowrap; }
+.hero-cta .hero-campaign-btn .line-copy small { display:block; font-size:max(12px,.7em); line-height:1.38; white-space:normal; }
+.hero-cta .hero-campaign-btn .campaign-benefit { word-break: keep-all; }
+.hero-cta .hero-campaign-btn .campaign-date { display:block; }
+.hero-cta .hero-campaign-btn .hero-gift {
+  position: absolute;
+  display: block;
+  width: clamp(72px, 23cqw, 140px);
+  height: auto;
+  right: 9%;
+  top: auto;
+  bottom: -2px;
+  transform: none;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 2;
+}
+.hero-cta .hero-campaign-btn > .arrow {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 3%;
+  transform: translateY(-50%);
+  font-size: clamp(22px,4.5cqw,32px);
+  font-weight: 300;
+  line-height: 1;
+}
 .hero-cta > .fine { color:#fff; font-size: clamp(11px, 2cqw, 14px); line-height:1.4; margin: .4em auto 0; text-align: center; text-shadow: 0 2px 2px #27150a; }
 @media (max-width: 600px) {
   .hero { min-height: max(690px, 178vw); aspect-ratio: auto; }
   .hero-catch { top: 11%; left: 5.3%; font-size: clamp(22px, 5.7vw, 28px); }
-  .hero-badge { top: 5.5%; right: 5%; width: 32%; }
+  .hero-badge { top: 5.2%; right: 4.6%; width: 32%; }
   .hero-badge-label { font-size: 14px; }
   .hero-weight small { font-size: 15px; }
   .hero-weight strong { font-size: clamp(31px, 9vw, 39px); }
   .hero-size { font-size: 12px; }
-  .hero-info { top: 66%; left: 6%; right: 3%; }
+  .hero-info { top: 64.5%; left: 6%; right: 3%; }
   .hero-info > .hero-logo { width: 25%; }
   .hero-lead { font-size: 13.5px; }
   .hero-info .opening-place { font-size: clamp(24px, 6.5vw, 29px); }
   .hero-info .opening-date { font-size: clamp(21px, 5.8vw, 27px); }
   .hero-info .hero-store { font-size: 12px; }
-  .hero-cta { top: 86.5%; }
-  .hero-cta .cta.line {
-    display: block;
-    width: 83%;
-    min-height: 66px;
-    height: auto;
-    padding: 10px 64px 10px 16px;
-    border-radius: 999px;
-    font-size: 13px;
+  .hero-cta { top: 85.7%; }
+  /* モバイルでもガチャのチャーム比率を維持し、文字の可読性を確保 */
+  .hero-cta .hero-campaign-btn {
+    width: 88%;
+    min-height: 70px;
+    padding: 10px 30% 10px 14px;
+    font-size: 14px;
+    line-height: 1.3;
   }
-  .hero .cta.line .line-copy { display: block; }
-  .hero .cta.line strong { font-size: 15px; line-height: 1.3; }
-  .hero .cta.line small { font-size: 12px; line-height: 1.45; }
-  .hero-cta .hero-gift { width: 45px; height: 45px; right: 24px; top: 50%; transform: translateY(-50%); }
-  .hero-cta .line > .arrow { right: 8px; }
-  .hero-cta > .fine { font-size: 11px; margin: 8px 8px 0; }
+  .hero-cta .hero-campaign-btn .line-copy {
+    display: block;
+    min-width: 0;
+  }
+  .hero-cta .hero-campaign-btn .line-copy strong {
+    font-size: 16px;
+    line-height: 1.28;
+    white-space: normal;
+  }
+  .hero-cta .hero-campaign-btn .line-copy small {
+    font-size: 12px;
+    line-height: 1.35;
+  }
+  .hero-cta .hero-campaign-btn .hero-gift {
+    position: absolute;
+    width: clamp(72px, 22vw, 98px);
+    height: auto;
+    right: 8%;
+    top: auto;
+    bottom: -2px;
+    transform: none;
+  }
+  .hero-cta .hero-campaign-btn > .arrow {
+    position: absolute;
+    top: 50%;
+    right: 2.4%;
+    transform: translateY(-50%);
+    font-size: 24px;
+  }
+  .hero-cta > .fine { font-size: 12px; margin: 5px 8px 0; line-height: 1.28; }
 }
 @media (max-width: 360px) {
-  .hero { min-height: 708px; }
+  .hero { min-height: 730px; }
   .hero-catch { font-size: 21px; }
-  .hero-info { top: 65%; }
-  .hero-cta { top: 87%; }
-  .hero-cta .cta.line { width: 88%; }
+  .hero-info { top: 64%; }
+  .hero-cta { top: 84%; }
+  .hero-cta .hero-campaign-btn { width: 94%; padding-left: 12px; padding-right: 32%; }
+  .hero-cta .hero-campaign-btn .line-copy strong { font-size: 15px; }
+  .hero-cta .hero-campaign-btn .hero-gift { width: 72px; right: 8%; }
+  .hero-cta .hero-campaign-btn > .arrow { font-size: 22px; }
+
+}
+
+/* 361–600px: CTA下の注意書きがヒーロー領域で切れないように余白を確保。 */
+@media (min-width: 361px) and (max-width: 600px) {
+  .hero { min-height: max(722px, 186vw); }
+  .hero-info { top: 62.5%; }
+  .hero-cta { top: calc(85.7% - 25px); }
 }
