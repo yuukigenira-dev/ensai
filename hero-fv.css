@@ -168,43 +168,7 @@
   .hero-info .opening-date { font-size: clamp(21px, 5.8vw, 27px); }
   .hero-info .hero-store { font-size: 12px; }
   .hero-cta { top: 85.7%; }
-  /* モバイルでもガチャのチャーム比率を維持し、文字の可読性を確保 */
-  .hero-cta .hero-campaign-btn {
-    width: 88%;
-    min-height: 70px;
-    padding: 10px 30% 10px 14px;
-    font-size: 14px;
-    line-height: 1.3;
-  }
-  .hero-cta .hero-campaign-btn .line-copy {
-    display: block;
-    min-width: 0;
-  }
-  .hero-cta .hero-campaign-btn .line-copy strong {
-    font-size: 16px;
-    line-height: 1.28;
-    white-space: normal;
-  }
-  .hero-cta .hero-campaign-btn .line-copy small {
-    font-size: 12px;
-    line-height: 1.35;
-  }
-  .hero-cta .hero-campaign-btn .hero-gift {
-    position: absolute;
-    width: clamp(72px, 22vw, 98px);
-    height: auto;
-    right: 8%;
-    top: auto;
-    bottom: -2px;
-    transform: none;
-  }
-  .hero-cta .hero-campaign-btn > .arrow {
-    position: absolute;
-    top: 50%;
-    right: 2.4%;
-    transform: translateY(-50%);
-    font-size: 24px;
-  }
+  /* LINEボタンのスマホ用レイアウトは line-cta.css に集約（2026-11-13） */
   .hero-cta > .fine { font-size: 12px; margin: 5px 8px 0; line-height: 1.28; }
 }
 @media (max-width: 360px) {
@@ -212,10 +176,6 @@
   .hero-catch { font-size: 21px; }
   .hero-info { top: 64%; }
   .hero-cta { top: 84%; }
-  .hero-cta .hero-campaign-btn { width: 94%; padding-left: 12px; padding-right: 32%; }
-  .hero-cta .hero-campaign-btn .line-copy strong { font-size: 15px; }
-  .hero-cta .hero-campaign-btn .hero-gift { width: 72px; right: 8%; }
-  .hero-cta .hero-campaign-btn > .arrow { font-size: 22px; }
 
 }
 

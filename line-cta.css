@@ -1,0 +1,109 @@
+/* =========================================================
+   line-cta.css — LINEボタン（FV の .hero-campaign-btn／ガチャの .line-art）のスマホ用レイアウト（≤600px）
+   2026-11-13：以前は mobile.css・hero-fv.css に幅ごとの別ルール（%指定の余白＋vw指定のチャーム、
+   360px以下だけ2段グリッド等）が重なり、チャーム幅と文字の逃げ（padding-right）が別々に伸縮して
+   文字・チャーム・矢印がぶつかっていた。ここで1つにまとめ、PC（601px〜）の見た目は変更しない。
+   ・右側に「チャーム幅＋矢印幅＋余白」を確保 → 文字はチャームに重ならない
+   ・チャームは clamp() で幅に比例。リングはPCと同様にボタン上端から少しはみ出す
+   ・矢印は右端で上下中央
+   ========================================================= */
+@media (max-width: 600px) {
+  .hero-cta .hero-campaign-btn,
+  .gacha .line-art {
+    --charm: clamp(60px, 19.5vw, 96px);   /* チャーム画像の幅（正方形PNG） */
+    --arrow-w: 26px;                       /* 矢印の幅 */
+    --gap: 6px;                            /* 文字とチャームの間 */
+    position: relative;
+    display: block;
+    height: auto;
+    min-height: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 11px calc(var(--charm) + var(--arrow-w) + var(--gap) + 16px) 11px clamp(14px, 4.2vw, 20px);
+    border: 0;
+    border-radius: 999px;
+    color: #fff;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.3;
+    overflow: visible;
+    cursor: pointer;
+  }
+  .hero-cta .hero-campaign-btn { width: min(92%, 500px); }
+  .hero-cta .hero-campaign-btn .campaign-date { display: block; }
+  .gacha .line-art {
+    width: 100%;
+    margin-top: 30px;                      /* はみ出すリングの分、上の画像と離す */
+    background: #05c756;                   /* 既存（バナー画像から採った緑） */
+    box-shadow: 2px 3px 5px #0007;
+    font-weight: 800;
+  }
+  .gacha .line-art > .line-banner { display: none; }
+
+  /* 文字 */
+  .hero-cta .hero-campaign-btn .line-copy,
+  .gacha .line-art > .line-copy { display: block; min-width: 0; }
+  .hero-cta .hero-campaign-btn .line-copy strong,
+  .gacha .line-art .line-copy strong {
+    display: block;
+    font-size: clamp(15px, 4.3vw, 18px);
+    line-height: 1.3;
+    white-space: nowrap;
+  }
+  .hero-cta .hero-campaign-btn .line-copy small,
+  .gacha .line-art .line-copy small {
+    display: block;
+    margin-top: 3px;
+    font-size: 12px;
+    line-height: 1.42;
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: keep-all;                   /* 句の途中で折り返さない（<wbr> と句読点で改行） */
+  }
+  .gacha .line-art .line-benefit { display: inline-block; white-space: nowrap; }
+  .hero-cta .nowrap, .line-art .nowrap { white-space: nowrap; }
+
+  /* チャーム：右（矢印の左）。リングがボタン上端から少しはみ出す */
+  .hero-cta .hero-campaign-btn .hero-gift,
+  .gacha .line-art > .hero-gift {
+    position: absolute;
+    display: block;
+    width: var(--charm);
+    height: auto;
+    right: calc(var(--arrow-w) + 16px);
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-54%);            /* 上下中央（リングの分わずかに上へ）。背の低いボタンではリングが上端から少しはみ出す */
+    object-fit: contain;
+    pointer-events: none;
+    z-index: 2;
+  }
+  /* 矢印：右端・上下中央 */
+  .hero-cta .hero-campaign-btn > .arrow,
+  .gacha .line-art > .arrow {
+    position: absolute;
+    display: block;
+    top: 50%;
+    right: 14px;
+    width: var(--arrow-w);
+    transform: translateY(-50%);
+    text-align: center;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 1;
+  }
+  .hero-cta > .fine { margin: 6px 8px 0; text-align: center; }
+}
+@media (max-width: 360px) {
+  .hero-cta .hero-campaign-btn { width: 94%; }
+  .hero-cta .hero-campaign-btn,
+  .gacha .line-art { --charm: 58px; --arrow-w: 20px; padding-left: 12px; }
+  .hero-cta .hero-campaign-btn > .arrow,
+  .gacha .line-art > .arrow { right: 10px; font-size: 20px; }
+  .hero-cta .hero-campaign-btn .hero-gift,
+  .gacha .line-art > .hero-gift { right: calc(var(--arrow-w) + 12px); }
+  .hero-cta .hero-campaign-btn,
+  .gacha .line-art { padding-right: calc(var(--charm) + var(--arrow-w) + var(--gap) + 12px); }
+  .hero-cta { top: calc(84% - 12px); }    /* 注意書きがFVの下端に収まるよう少し上へ */
+  .gacha > .fine { margin-top: 12px; text-align: center; }
+}
