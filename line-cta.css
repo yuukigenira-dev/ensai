@@ -19,7 +19,7 @@
     min-height: 70px;
     margin-left: auto;
     margin-right: auto;
-    padding: 11px calc(var(--charm) + var(--arrow-w) + var(--gap) + 16px) 11px clamp(14px, 4.2vw, 20px);
+    padding: 11px calc(var(--charm) + var(--arrow-w) + var(--gap) + 16px) 11px clamp(20px, 7.2vw, 36px);   /* 2026-11-15 文字を右へ（旧 clamp(14px,4.2vw,20px)） */
     border: 0;
     border-radius: 999px;
     color: #fff;
@@ -97,7 +97,7 @@
 @media (max-width: 360px) {
   .hero-cta .hero-campaign-btn { width: 94%; }
   .hero-cta .hero-campaign-btn,
-  .gacha .line-art { --charm: 58px; --arrow-w: 20px; padding-left: 12px; }
+  .gacha .line-art { --charm: 58px; --arrow-w: 20px; padding-left: 13px; }
   .hero-cta .hero-campaign-btn > .arrow,
   .gacha .line-art > .arrow { right: 10px; font-size: 20px; }
   .hero-cta .hero-campaign-btn .hero-gift,
