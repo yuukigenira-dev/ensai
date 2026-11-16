@@ -11,7 +11,7 @@
   .hero-cta .hero-campaign-btn,
   .gacha .line-art {
     --slot: clamp(60px, 19.5vw, 96px);    /* 文字の右に確保する幅（チャーム用） */
-    --charm: calc(var(--slot) * 1.3);  /* チャーム画像の幅（正方形PNG・上下左右に約8%の透明余白）。2026-11-15 拡大：下端を「店頭お渡し」行のベースラインに揃える */
+    --charm: min(calc(var(--slot) * 1.3), 106px);  /* チャーム画像の幅（正方形PNG・上下左右に約8%の透明余白）。2026-11-15 拡大、11-16 上下中央に */
     --arrow-w: 26px;                       /* 矢印の幅 */
     --gap: 6px;                            /* 文字とチャームの間 */
     position: relative;
@@ -30,7 +30,7 @@
     overflow: visible;
     cursor: pointer;
   }
-  .hero-cta .hero-campaign-btn { width: min(92%, 500px); }
+  .hero-cta .hero-campaign-btn { width: min(92%, 500px); font-weight: 800; }   /* 2026-11-16 ガチャのボタンと同じ太さに */
   .hero-cta .hero-campaign-btn .campaign-date { display: block; }
   .gacha .line-art {
     width: 100%;
@@ -72,9 +72,9 @@
     width: var(--charm);
     height: auto;
     right: calc(var(--arrow-w) + 16px - var(--charm) * .06);
-    top: auto;
-    bottom: calc(14px - var(--charm) * .09);  /* 絵柄の下端（画像の91%位置）＝最終行（店頭お渡し…）のベースライン付近。リングはボタン上端からはみ出す */
-    transform: none;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-48.8%);          /* 2026-11-16 絵柄（リング上端〜しっぽ下端＝画像の6.6%〜91%）をボタンの上下中央に。上下の余白を均等に */
     object-fit: contain;
     pointer-events: none;
     z-index: 2;
@@ -107,4 +107,9 @@
   .gacha .line-art { padding-right: calc(var(--slot) + var(--arrow-w) + var(--gap) + 12px); }
   .hero-cta { top: calc(84% - 12px); }    /* 注意書きがFVの下端に収まるよう少し上へ */
   .gacha > .fine { margin-top: 12px; text-align: center; }
+}
+/* 2026-11-16 459〜600px は文字が2行でボタンが低いため、チャームを上下余白が残る大きさに */
+@media (min-width: 459px) and (max-width: 600px) {
+  .hero-cta .hero-campaign-btn,
+  .gacha .line-art { --charm: 86px; }
 }
