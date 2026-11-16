@@ -239,3 +239,15 @@ dialog button { min-height: 44px; font-size: 16px; }
     overflow-wrap: break-word;
   }
 }
+
+/* 2026-11-16 ガチャの「約1g」円：文字が円の下側（幅の狭い部分）にはみ出していたため、
+   中身を円の上下中央に寄せ、「約1g」をひと回り小さくして円の内側に収める（全幅共通） */
+.charm .weight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: .2em;
+}
+.charm .weight span { display: block; width: 100%; }
+.charm .weight p { font-size: 1.45em; margin-top: .08em; }
