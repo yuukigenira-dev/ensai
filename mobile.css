@@ -269,3 +269,15 @@ dialog button { min-height: 44px; font-size: 16px; }
 .product .price { font-size: .9em; line-height: 1.5; margin-top: .1em; }
 @media (max-width: 600px) { .product .price { font-size: 16px; } }
 .product .price small { font-size: max(12px, .72em); }
+/* 2026-11-16 スマホ幅：購入ボタンの文字と矢印が両端に離れて間延びするため、まとめて中央揃え（PCと同じ並び） */
+@media (max-width: 600px) {
+  .cta.shop {
+    grid-template-columns: auto auto;
+    justify-content: center;
+    column-gap: .55em;                       /* 矢印は文字のすぐ右（PCと同じ並び） */
+    width: fit-content;                      /* ボタン幅は中身に合わせる */
+    max-width: calc(100% - 32px);
+    padding: 16px clamp(20px, 7vw, 40px);
+  }
+  .cta.shop .shop-label { font-size: clamp(13px, 4.2vw, 20px); }
+}
