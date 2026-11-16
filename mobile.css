@@ -251,3 +251,9 @@ dialog button { min-height: 44px; font-size: 16px; }
 }
 .charm .weight span { display: block; width: 100%; }
 .charm .weight p { font-size: 1.45em; margin-top: .08em; }
+/* 2026-11-16 「約」「g」を大きい「1」の上下中央に揃える */
+.charm .weight p { display: flex; align-items: center; justify-content: center; gap: .04em; line-height: 1; }
+.charm .weight p strong { line-height: 1; }
+/* 2026-11-16 下部固定「オンラインショップ」：クローバー（♧）をカートのアイコン（インラインSVG）に変更 */
+.bottom-shop .shop-label { display: inline-flex; align-items: center; font-size: 1em; font-weight: 700; }
+.bottom-shop .cart-icon { width: 1.15em; height: 1.15em; flex: none; margin-right: .75em; }
