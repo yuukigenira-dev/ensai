@@ -286,3 +286,15 @@ dialog button { min-height: 44px; font-size: 16px; }
 .mountain {
   background: #659cb2 url("assets/mountain-bg.svg?v=1") center top / cover no-repeat;
 }
+
+/* ブルーマウンテン：シングルマグはカンプ比（タンブラー高さの約81%）で下揃え。
+   取っ手を除いた本体の中心が文字の中心に来るよう右へずらす */
+.mountain-grid { --mg-h: 14em; }
+.mountain-grid img { height: var(--mg-h); }
+.mountain-grid article:nth-child(2) img {
+  padding-top: calc(var(--mg-h) * .19);
+  object-position: calc(50% + var(--mg-h) * .11) bottom;
+}
+@media (max-width: 600px) {
+  .mountain-grid { --mg-h: clamp(140px, 38vw, 224px); }
+}
