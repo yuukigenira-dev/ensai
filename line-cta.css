@@ -108,8 +108,17 @@
   .hero-cta { top: calc(84% - 12px); }    /* 注意書きがFVの下端に収まるよう少し上へ */
   .gacha > .fine { margin-top: 12px; text-align: center; }
 }
-/* 2026-11-16 459〜600px は文字が2行でボタンが低いため、チャームを上下余白が残る大きさに */
-@media (min-width: 459px) and (max-width: 600px) {
+/* 2026-11-16 391〜600px は横に間延びするため、ボタンを iPhone（390px幅）表示と同じ寸法で固定し中央寄せ */
+@media (min-width: 391px) and (max-width: 600px) {
   .hero-cta .hero-campaign-btn,
-  .gacha .line-art { --charm: 86px; }
+  .gacha .line-art {
+    --slot: 76px;
+    width: 359px;
+    max-width: 100%;
+    padding-left: 28px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-cta .hero-campaign-btn .line-copy strong,
+  .gacha .line-art .line-copy strong { font-size: 16.8px; }
 }
