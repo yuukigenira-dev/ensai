@@ -265,3 +265,7 @@ dialog button { min-height: 44px; font-size: 16px; }
   .cta.shop .shop-label { font-size: clamp(13px, 4.1vw, 16px); }
   .cta.shop .cart-icon { margin-right: .4em; }
 }
+/* 2026-11-16 シングルタンブラー4種の価格：大きすぎたため、商品名（1.3em）より小さく、ブルーマウンテンの価格（.85em）とつり合う大きさに */
+.product .price { font-size: .9em; line-height: 1.5; margin-top: .1em; }
+@media (max-width: 600px) { .product .price { font-size: 16px; } }
+.product .price small { font-size: max(12px, .72em); }
