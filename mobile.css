@@ -257,3 +257,11 @@ dialog button { min-height: 44px; font-size: 16px; }
 /* 2026-11-16 下部固定「オンラインショップ」：クローバー（♧）をカートのアイコン（インラインSVG）に変更 */
 .bottom-shop .shop-label { display: inline-flex; align-items: center; font-size: 1em; font-weight: 700; }
 .bottom-shop .cart-icon { width: 1.15em; height: 1.15em; flex: none; margin-right: .75em; }
+/* 2026-11-16 「オンラインショップで購入する」ボタンにも白抜きのカートアイコン（文字色＝白を継承） */
+.cta.shop .shop-label { display: inline-flex; align-items: center; white-space: nowrap; }
+.cta.shop .cart-icon { width: 1.15em; height: 1.15em; flex: none; margin-right: .5em; }
+@media (max-width: 480px) {
+  /* 狭い幅でアイコン＋文字＋矢印が重ならないよう、文字を幅に合わせて少しだけ縮める（390px以上は従来どおり16px） */
+  .cta.shop .shop-label { font-size: clamp(13px, 4.1vw, 16px); }
+  .cta.shop .cart-icon { margin-right: .4em; }
+}
